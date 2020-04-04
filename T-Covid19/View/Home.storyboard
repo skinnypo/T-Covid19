@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dn3-0g-fzm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HomeVC-->
+        <scene sceneID="kOG-0K-bBe">
+            <objects>
+                <viewController id="Dn3-0g-fzm" customClass="HomeVC" customModule="T_Covid19" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eD0-cs-EBn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AUl-3t-xOq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hdv-Pt-FCH">
+                                <rect key="frame" x="107" y="64" width="200" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="R4e-y9-nYI"/>
+                                    <constraint firstAttribute="height" constant="30" id="hQW-U5-aoY"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Normal"/>
+                                    <segment title="JHU CSSE"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mapModeSCTapped:" destination="Dn3-0g-fzm" eventType="valueChanged" id="jKc-o1-sC4"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcL-QJ-MqP">
+                                <rect key="frame" x="20" y="68" width="25" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="F8X-78-c9a"/>
+                                    <constraint firstAttribute="width" constant="25" id="kjO-7R-DAN"/>
+                                </constraints>
+                                <state key="normal" image="arrow.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="Dn3-0g-fzm" eventType="touchUpInside" id="uMH-bb-Q1j"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AUl-3t-xOq" firstAttribute="centerX" secondItem="5i7-rU-U9k" secondAttribute="centerX" id="8uL-ET-mSq"/>
+                            <constraint firstItem="dcL-QJ-MqP" firstAttribute="top" secondItem="5i7-rU-U9k" secondAttribute="top" constant="24" id="Fyr-0r-5eg"/>
+                            <constraint firstItem="hdv-Pt-FCH" firstAttribute="centerX" secondItem="eD0-cs-EBn" secondAttribute="centerX" id="Gt3-LE-1fR"/>
+                            <constraint firstItem="AUl-3t-xOq" firstAttribute="width" secondItem="eD0-cs-EBn" secondAttribute="width" id="SFf-Af-0yo"/>
+                            <constraint firstItem="AUl-3t-xOq" firstAttribute="centerY" secondItem="5i7-rU-U9k" secondAttribute="centerY" constant="-5" id="XV7-fT-xha"/>
+                            <constraint firstItem="dcL-QJ-MqP" firstAttribute="leading" secondItem="5i7-rU-U9k" secondAttribute="leading" constant="20" id="cCw-nf-lDc"/>
+                            <constraint firstItem="hdv-Pt-FCH" firstAttribute="top" secondItem="5i7-rU-U9k" secondAttribute="top" constant="20" id="eHH-NR-Bm2"/>
+                            <constraint firstItem="AUl-3t-xOq" firstAttribute="height" secondItem="eD0-cs-EBn" secondAttribute="height" id="sq7-VW-3Ak"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5i7-rU-U9k"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapModeSC" destination="hdv-Pt-FCH" id="I7Y-Cx-ZFT"/>
+                        <outlet property="mapView" destination="AUl-3t-xOq" id="pga-ya-QKb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfl-WR-B7B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-136.23188405797103" y="-97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+    </resources>
+</document>
